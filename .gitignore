@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env  # 環境変数（パスワードなど）を Git に含めない
+venv/  # 仮想環境をプロジェクト内に作っている場合のみ追加
+
+# Node.js
+frontend/node_modules/
+frontend/dist/
+
+# Django
+backend/static/
+backend/media/
+
+# VSCode
+.vscode/
+
+# OS 不要ファイル
+.DS_Store  # macOS
