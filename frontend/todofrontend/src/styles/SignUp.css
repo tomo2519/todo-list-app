@@ -1,0 +1,98 @@
+/* 背景全体 */
+
+body {
+    background-color: #e6f7d4;
+}
+
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vh;
+    background-color: #e6f7d4; /* ✅ 淡い黄緑色 */
+}
+
+/* フォームのボックス */
+.signup-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    text-align: center;
+}
+
+/* 見出し */
+.signup-box h2 {
+    color: #388e3c; /* ✅ 濃い緑色 */
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+/* 入力フィールド */
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 2px solid #81c784; /* ✅ 優しい緑 */
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: white;
+    color:black;
+}
+
+/* ボタン */
+.signup-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50; /* ✅ 明るい緑 */
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.signup-button:hover {
+    background-color: #388e3c; /* ✅ ホバー時に少し濃く */
+}
+
+/* エラーメッセージ */
+.error-message {
+    color: red;
+    background-color: #ffebee;
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* 成功メッセージ */
+.success-message {
+    color: green;
+    background-color: #e8f5e9;
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* ログインリンク */
+.login-link {
+    margin-top: 15px;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.login-button {
+    color: #388e3c;
+    font-weight: bold;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    text-decoration: underline;
+}
