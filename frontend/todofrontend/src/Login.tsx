@@ -1,43 +1,42 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./styles/SignUp.css"; // ✅ CSSファイルをインポート
+import "./styles/Login.css"; // ✅ CSS ファイルをインポート
 
-export default function SignUp() {
+export default function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [message, setMessage] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
-    const handleSignUp = async () => {
+    const handleLogin = async () => {
         setError("");
-        setMessage("");
 
         try {
-            const response = await fetch("http://127.0.0.1:8000/api/register/", {
+            const response = await fetch("http://127.0.0.1:8000/api/token/", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ username, password }),
             });
 
+            const data = await response.json();
+
             if (response.ok) {
-                setMessage("✅ 登録成功！ログインしてください。");
-                setTimeout(() => navigate("/login"), 2000);
+                localStorage.setItem("accessToken", data.access);
+                localStorage.setItem("refreshToken", data.refresh);
+                navigate("/");
             } else {
-                const data = await response.json();
-                setError(data?.message || "❌ 登録に失敗しました。");
+                setError("ログインに失敗しました");
             }
         } catch (error) {
-            setError("⚠️ ネットワークエラーが発生しました。");
+            setError("ネットワークエラーが発生しました。");
         }
     };
 
     return (
-        <div className="signup-container">
-            <div className="signup-box">
-                <h2>新規登録</h2>
+        <div className="login-container">
+            <div className="login-box">
+                <h2 className="login-title">ログイン</h2>
 
-                {message && <p className="success-message">{message}</p>}
                 {error && <p className="error-message">{error}</p>}
 
                 <input
@@ -54,14 +53,14 @@ export default function SignUp() {
                     onChange={(e) => setPassword(e.target.value)}
                     className="input-field"
                 />
-                <button onClick={handleSignUp} className="signup-button">
-                    登録
+                <button onClick={handleLogin} className="login-button">
+                    ログイン
                 </button>
 
-                <p className="login-link">
-                    すでにアカウントをお持ちですか？{" "}
-                    <button onClick={() => navigate("/login")} className="login-button">
-                        ログイン画面へ
+                <p className="signup-link">
+                    アカウントをお持ちでないですか？{" "}
+                    <button onClick={() => navigate("/signup")} className="signup-button">
+                        新規登録
                     </button>
                 </p>
             </div>

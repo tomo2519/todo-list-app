@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from .models import Task
 from django.contrib.auth.models import User
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.views import APIView
 from .serializers import TaskSerializer, UserSerializer
 from django.http import HttpResponse
@@ -27,5 +29,5 @@ class TaskViewSet(viewsets.ModelViewSet):
     """
     queryset = Task.objects.all()  # すべてのタスクを取得
     serializer_class = TaskSerializer  # シリアライザーを指定
-    #permission_classes = [permissions.IsAuthenticated] 
+    permission_classes = [IsAuthenticated] 
 

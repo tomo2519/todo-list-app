@@ -1,0 +1,54 @@
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #d9f99d; /* 黄緑ベース */
+}
+
+.login-title {
+    color: #388e3c; /* ✅ 濃い緑色 */
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.login-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #a3e635;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login-button {
+    background-color: #84cc16;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #65a30d;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.signup-link {
+    margin-top: 10px;
+}
+

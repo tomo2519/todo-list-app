@@ -40,7 +40,22 @@ INSTALLED_APPS = [
     'corsheaders',
     'tasks',
     'rest_framework',
+    'rest_framework_simplejwt',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',  # ✅ JWT 認証を有効化
+    ),
+}
+
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),  # ✅ アクセストークンの有効期限
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),  # ✅ リフレッシュトークンの有効期限
+    'AUTH_HEADER_TYPES': ('Bearer',),  # ✅ ヘッダーに `Bearer <TOKEN>` 形式で送る
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
